@@ -1,6 +1,6 @@
 # Clickatellsend
 
-You can use almost every function of the clickatell API in a simple way
+To use this gem you need to be registered in www.clicktell.com, and get an API ID. You can use almost every function of the clickatell API in a simple way,
 
 TODO: Create parser for the callbacks of the clickatell API
 
@@ -38,7 +38,8 @@ CLICKATELL_API_ID = ENV['clickatell_api_id']
 
 we can use of the methods of the API in this way, perform a new request and receive the result in a json format
 
-### Get a session ID if you later don't want to send the messages with user and password
+## Get a session ID
+if you later don't want to send the messages with user and password
 ```ruby
 request = Clickatellsend::Request.new
 session = request.auth
@@ -46,7 +47,7 @@ session = request.auth
 message = request.send_msg(:to => 584141571411, :text => "I don't know", :session_id => session["OK"])
 ```
 
-### Prevent the session expiring
+## Prevent the session expiring
 ```ruby
 request = Clickatellsend::Request.new
 session = request.auth
@@ -54,25 +55,31 @@ session = request.auth
 ping = request.prevent_expiring(:session_id => session["OK"])
 ```
 
-### Send Message
+## Send Message
 ```ruby
 request = Clickatellsend::Request.new
 message = request.send_msg(:to => 584141571411, :text => "I don't know")
 ```
 
-### Send Message with delay
+## Send Message with delay
 ```ruby
 request = Clickatellsend::Request.new
 message = request.send_msg(:to => 584141571411, :text => "I don't know", :deliv_time => 15) #15 minutes
 ```
 
-### Get balance
+## Send Message to multiple recipients
+```ruby
+request = Clickatellsend::Request.new
+message = request.send_msg(:to => "584141571411,1234,22234535456", :text => "I don't know")
+```
+
+## Get balance
 ```ruby
 request = Clickatellsend::Request.new
 balance = request.get_balance
 ```
 
-### Get message charge
+## Get message charge
 ```ruby
 request = Clickatellsend::Request.new
 message = request.send_msg(:to => 584141571411, :text => "I don't know")
@@ -80,13 +87,13 @@ message = request.send_msg(:to => 584141571411, :text => "I don't know")
 charge = request.get_msg_charge(:apimsgid => message["ID"])
 ```
 
-### Route coverage
+## Route coverage
 ```ruby
 request = Clickatellsend::Request.new
 coverage = request.route_coverage(:msisdn => 584141571411)
 ```
 
-### Get message status
+## Get message status
 ```ruby
 request = Clickatellsend::Request.new
 message = request.send_msg(:to => 584141571411, :text => "I don't know")
@@ -94,7 +101,7 @@ message = request.send_msg(:to => 584141571411, :text => "I don't know")
 status = request.get_msg_status(:apimsgid => message["ID"])
 ```
 
-### Stop a message
+## Stop a message
 ```ruby
 request = Clickatellsend::Request.new
 message = request.send_msg(:to => 584141571411, :text => "I don't know", :deliv_time => 15) #15 minutes
