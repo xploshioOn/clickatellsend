@@ -2,10 +2,10 @@ module Clickatellsend
 	class Request
 
 	  def initialize()
-	    @url = CLICKATELL_URL
-		  @user = CLICKATELL_USER
-		  @password = CLICKATELL_PASSWORD
-		  @api_id = CLICKATELL_API_ID
+	    @url = Clickatellsend.config.clickatell_url
+		  @user = Clickatellsend.config.clickatell_user
+		  @password = Clickatellsend.config.clickatell_password
+		  @api_id = Clickatellsend.config.clickatell_api_id
 	  end
 
 	  # :to, :text, :deliv_time

@@ -27,11 +27,12 @@ then run the generator:
 and go to config/initializers/clickatellsend.rb and fill with your credentials
 
 ```ruby
-require 'clickatellsend'
-CLICKATELL_URL = "http://api.clickatell.com/"
-CLICKATELL_USER = ENV['clickatell_user']
-CLICKATELL_PASSWORD = ENV['clickatell_password']
-CLICKATELL_API_ID = ENV['clickatell_api_id']
+Clickatellsend.config do | config |
+	config.clickatell_url
+	config.clickatell_user
+	config.clickatell_password
+	config.clickatell_api_id
+end
 ```
 
 ## Usage
