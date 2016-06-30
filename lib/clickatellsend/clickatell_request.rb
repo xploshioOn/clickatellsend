@@ -1,11 +1,12 @@
 module Clickatellsend
+
 	class Request
 
-	  def initialize()
-	    @url = Clickatellsend.config.clickatell_url
-		  @user = Clickatellsend.config.clickatell_user
-		  @password = Clickatellsend.config.clickatell_password
-		  @api_id = Clickatellsend.config.clickatell_api_id
+		def initialize()
+	    @url = Clickatellsend.config[:url]
+		  @user = Clickatellsend.config[:user]
+		  @password = Clickatellsend.config[:password]
+		  @api_id = Clickatellsend.config[:api_id]
 	  end
 
 	  # :to, :text, :deliv_time
@@ -58,14 +59,15 @@ module Clickatellsend
 
 	  	def response(request)
 	  		if request.code == 200
-		  			response = request.split("\n").map{|l| l.scan /(\w+):\s($|[\w, \d.]+)(?:\s|$)/}.map &:to_h
-		  			if response.size == 1
-		  				response[0]
-		  			end
+	  			response = request.split("\n").map{|l| l.scan /(\w+):\s($|[\w, \d.]+)(?:\s|$)/}.map &:to_h
+	  			if response.size == 1
+	  				response[0]
+	  			end
 		  	else
 		  		{:ERR => "Could not connect to the API, double check your settings and internet connection"}
 		  	end
 	  	end
 
 	end
+
 end

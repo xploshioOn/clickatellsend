@@ -20,18 +20,16 @@ Or install it yourself as:
 
     $ gem install clickatellsend
 
-then run the generator:
+## Configuration
 
-    $ rails g clickatellsend
-
-and go to config/initializers/clickatellsend.rb and fill with your credentials
+To use the gem you need to set your credentials
 
 ```ruby
-Clickatellsend.config do | config |
-	config.clickatell_url
-	config.clickatell_user
-	config.clickatell_password
-	config.clickatell_api_id
+Clickatellsend.config do |config|
+  config.url = "http://api.clickatell.com/"
+  config.user = ENV['CLICKATELL_USER']
+  config.password = ENV['CLICKATELL_PASSWORD']
+  config.api_id = ENV['CLICKATELL_API_ID']
 end
 ```
 
