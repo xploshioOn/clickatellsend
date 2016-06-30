@@ -1,6 +1,6 @@
 # Clickatellsend
 
-To use this gem you need to be registered in www.clicktell.com, and get an API ID. You can use almost every function of the clickatell API in a simple way,
+To use this gem you need to be registered in www.clickatell.com, and get an API ID. You can use almost every function of the clickatell API in a simple way,
 
 TODO: Create parser for the callbacks of the clickatell API
 
